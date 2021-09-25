@@ -130,3 +130,15 @@ def unfollow_request(request, pk):
     follow.following.remove(following.user)
     following.followers.remove(follow.user)
     return HttpResponseRedirect(reverse('mentor'))
+
+
+@login_required
+def accountupdate(request):
+    user = MenteeInfo.objects.get(user=request.user)
+    menteeform = MenteeProfileForm(instance=user)
+    if request.method == 'POST':
+        update = MenteeProfileForm(request.POST, request.FILES, instance=user)
+        if update.is_valid():
+            update.save()
+            return HttpResponseRedirect(reverse('profile'))
+    return render(request, 'mentor/accountupdate.html', {'menteeform': menteeform, 'user': user})
