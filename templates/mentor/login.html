@@ -1,0 +1,115 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://kit.fontawesome.com/16cdc21e40.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="{% static 'login.css' %}" rel="stylesheet" type="text/css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,900;1,900&display=swap" rel="stylesheet">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>Account</title>
+  </head>
+  <body>
+
+     <div class="container shadow" id="container">
+        <div class="form-container sign-up-container">
+            <form method="post" name="signup">
+                {% csrf_token %}
+                <br><h2>Create Account</h2>
+                <div class="social-container d-flex">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registration</span><br><br>
+                <div class="row">
+                <div class="col">
+                    {{ signup.first_name }}
+                </div>
+                <div class="col">
+                    {{ signup.last_name }}
+                </div>
+                </div>
+                {{ signup.email }}
+                {{ signup.username }}
+                {{ signup.password1 }}
+                {{ signup.password2 }}
+
+
+                    {% for message in messages %}
+                        {% if message.tags == 'error' %}
+<<<<<<< HEAD
+                            <div class="alert alert-danger d-flex align-items-center" id="danger {{ forloop.counter }}"><b>{{ message }}</b></div>
+=======
+                            <div class="alert alert-danger d-flex align-items-center" id="danger"><b>{{ message }}</b></div>
+>>>>>>> c6cd488b611bb765fd4f75edff2369f6efc2bfdb
+                        {% endif %}
+                    {% endfor %}
+
+                <button type="submit" value="signup" name="signup" id="sign">Sign Up!</button><br>
+
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form method="post">
+                {% csrf_token %}
+                <h1>Login</h1>
+                <div class="social-container d-flex">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your account</span><br>
+                <input type="text" class="mb-2" placeholder="Username" name="username"/>
+                <input type="password" class="mb-2" placeholder="Password" name="password"/>
+                 <br>
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.tags == 'warning' %}
+                            <div class="alert alert-danger" id="danger1"><b>{{ message }}</b></div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                <button type="submit" value="login" name="login" id="log">Login</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Login by clicking below. Add ons waiting for you!..</p>
+                    <button class="ghost" id="signIn">Login</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Oh! First time using our website. Don't worry, create your account by clicking below.</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+     <script>
+        const op = "{{ user_name }}";
+        const op1 = "{{ userpassword }}";
+     </script>
+     
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="{% static 'login.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+     
+  </body>
+</html>

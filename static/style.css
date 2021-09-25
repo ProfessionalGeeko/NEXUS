@@ -1,0 +1,55 @@
+html,body{
+margin:0;
+padding:0;
+box-sizing: border-box;
+ 
+}
+.main-div{
+    margin: 50%;
+    padding: 50%;
+    position: relative;
+}
+.box{
+    width:400px;
+    position: absolute;
+}
+
+ 
+ 
+.nav{
+    box-shadow: black;
+    width:auto;
+    
+}
+ul{
+    font-size: 20px;
+}
+.nav-link:hover{
+    background-color:#5b7a61;
+    border-radius: 3px;
+    color:rgb(255, 255, 255);
+}
+.dropdown-item:hover{
+    background-color:#5b7a61;
+}
+ 
+.container-fluid h2{
+    font-family: 'Alegreya', serif;
+    font-size: 70px;
+    color:rgb(11, 44, 18);
+     
+    
+ }
+
+  
+.container-fluid p{
+    font-family: 'Alegreya', serif;
+    font-size: 34px;
+    color:rgb(48, 98, 59);
+
+}
+
+
+ 
+ 
+ 

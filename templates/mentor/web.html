@@ -1,0 +1,318 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://kit.fontawesome.com/16cdc21e40.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="{% static 'home.css' %}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,900;1,900&display=swap" rel="stylesheet">
+     <title>NEXUS</title>
+  </head>
+ <style>
+     .header .icons a{
+    height:4.5rem;
+    width:4.5rem;
+    line-height:4.5rem;
+    font-size: 2rem;
+    border-radius: .5rem;
+    margin-left: .5rem;
+    background:var(--bg-color-2);
+    color:var(--text-color-1);
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.header .icons a:hover{
+    color:#fff;
+    background:var(--orange);
+}
+ </style>
+  <body>
+    
+    <!-- header section starts  -->
+    
+    <header class="header">
+    
+        <a href="{% url 'Home' %}" class="logo" style="text-decoration: none;"> <i class="fas fa-paper-plane"></i> NEXUS </a>
+    
+        <form action="" class="search-form">
+            <input type="search" name="" placeholder="search here..." id="searchBox">
+            <label for="searchBox" class="fas fa-search"></label>
+        </form>
+    
+        <div class="icons">
+            <div class="fas fa-search" id="search-btn" ></div>
+            <div class="fas fa-moon" id="theme-btn"></div>
+            <a class="fas fa-user" id="login-btn" href="{% url 'usersetup' %}"></a>
+ 
+            <div class="fas fa-bars" id="menu-btn"></div>
+        </div>
+    
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#packages">packages</a>
+            <a href="#services">services</a>
+            <a href="#contact">contact</a>
+            <a href="#blogs">blogs</a>
+        </nav>
+     
+    </header>
+    
+    <!-- header section ends -->
+    
+    <!-- home section starts  -->
+    
+    <section class="home" id="home">
+    
+        <div class="image" data-aos="fade-down">
+            <img src="{% static 'images/home-img.svg' %}" >
+        </div>
+    
+        <div class="content" data-aos="fade-up">
+            <h3>NEXUS: An Holistic Approach Towards Students</h3>
+            <p>A platform where stuents can Learn, Explore, Achieve, Reflect, NEXUS.<br>All over development of students so that they get placed in their dream companies!</p>
+            <a href="#" class="btn">explore now</a>
+        </div>
+    
+    </section>
+    
+    <!-- home section ends -->
+    
+    <!-- packages section starts  -->
+    
+    <section class="packages" id="packages">
+    
+        <h1 class="heading"> our <span>packages</span> </h1>
+    
+        <div class="box-container">
+    
+            <div class="box" data-aos="fade-up">
+                <div class="image">
+                    <img src="{% static 'images/p-7.jpg' %}" alt="">
+                 </div>
+                <div class="content">
+                    <div class="price"> Choose Your Mentor </div>
+                    <p>This ML model can enrich the student-mentor relationship between students and teachers.New kind of system. </p>
+                    <a href="#" class="btn"> Start now</a>
+                </div>
+            </div>
+    
+            <div class="box" data-aos="fade-up">
+                <div class="image">
+                    <img src="{% static 'images/p-8.png' %}" alt="">
+                 </div>
+                <div class="content">
+                    <div class="price"> Library System</div>
+                    <p>This platform provides all kinds of books necessary for students and mentrs. Teacher's notes are also available</p>
+                    <a href="#" class="btn"> Issue now</a>
+                </div>
+            </div>
+    
+            <div class="box" data-aos="fade-up">
+                <div class="image">
+                    <img src="{% static 'images/p-9.jpg' %}" alt="">
+                 </div>
+                <div class="content">
+                    <div class="price"> To-Do-List </div>
+                    <p>Easiest way to manage your projects and tasks. Manage all your team's work in one place and improve accountability.</p>
+                    <a href="#" class="btn"> book now</a>
+                </div>
+            </div>
+     
+        </div>
+    
+    </section>
+    
+    <!-- packages section ends -->
+    
+    <!-- services section starts  -->
+    
+    <section class="services" id="services">
+    
+        <h1 class="heading"> our <span>services</span> </h1>
+    
+        <div class="box-container">
+    
+            <div class="box" data-aos="zoom-in">
+                <span>01</span>
+                <i class="fas fa-hotel"></i>
+                <h3>Recommendation System</h3>
+                <p>Easy recommendation of registered mentors to other mentors. Same for students.</p>
+            </div>
+    
+            <div class="box" data-aos="zoom-in">
+                <span>02</span>
+                <i class="fab fa-sketch"></i>
+                <h3>Easy Interface</h3>
+                <p>Easy to navigate through our websites. Packages and services are better for an over all holitic development.</p>
+            </div>
+    
+            <div class="box" data-aos="zoom-in">
+                <span>03</span>
+                <i class="fas fa-user-circle"></i>
+                <h3>Seperate Dashboard</h3>
+                <p>Student activity will be shown to them in their student dashbard while mentors have their own dashboard.</p>
+            </div>
+        </div>
+    
+    </section>
+    
+    <!-- services section ends -->
+   <!-- contact section starts  -->
+    
+    <section class="contact" id="contact">
+    
+        <h1 class="heading"> <span>contact</span> us </h1>
+    
+        <form action="" data-aos="zoom">
+    
+            <div class="inputBox">
+                <input type="text" placeholder="name" data-aos="fade-up">
+                <input type="email" placeholder="email" data-aos="fade-up">
+            </div>
+    
+            <div class="inputBox">
+                <input type="number" placeholder="number" data-aos="fade-up">
+                <input type="text" placeholder="subject" data-aos="fade-up">
+            </div>
+    
+            <textarea name="" placeholder="your message" id="" cols="30" rows="10" data-aos="fade-up"></textarea>
+            
+            <input type="submit" value="send message" class="btn">
+    
+        </form>
+    
+    </section>
+    
+    <!-- contact section ends -->
+    
+    <!-- blog section starts  -->
+    
+    <section class="blogs" id="blogs">
+    
+        <h1 class="heading"> our <span>blogs</span> </h1>
+    
+        <div class="box-container">
+    
+            <div class="box" data-aos="fade-up">
+                <div class="image">
+                    <img src="{% static 'images/blog-1.svg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Importance of Holistic Development</h3>
+                    <a href="https://idreamcareer.com/blog/holistic-development/" class="btn">read more</a>
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"></i> 1st jan, 2021 </a>
+                        <a href="#"> <i class="fas fa-user"></i> by Aroma </a>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="box" data-aos="fade-up">
+                <div class="image">
+                    <img src="{% static 'images/blog-2.svg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Role of Holistic Development in Career</h3>
+                    <a href="https://www.mituniversity.edu.in/understanding-the-role-of-holistic-development-in-career/" class="btn">read more</a>
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"></i> 1st jan, 2021 </a>
+                        <a href="#"> <i class="fas fa-user"></i> by admin </a>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="box" data-aos="fade-up">
+                <div class="image">
+                    <img src="{% static 'images/blog-3.svg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Developing employability skills</h3>
+                    <a href="https://indiraiimp.edu.in/blog/developing-employability-skills-holistic-approach-at-pgdm/" class="btn">read more</a>
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"></i> 1st jan, 2021 </a>
+                        <a href="#"> <i class="fas fa-user"></i> by admin </a>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    
+    </section>
+    
+    <!-- blog section ends -->
+    
+    <!-- footer section starts  -->
+    
+    <section class="footer">
+    
+        <div class="box-container">
+    
+            
+    
+            <div class="box d-flex " data-aos="fade-up">
+                <h3>quick links</h3> 
+                 <a href="#"> <i class="fas fa-chevron-right"></i> home </a>
+                <a href="#"> <i class="fas fa-chevron-right"></i> packages </a>
+                <a href="#"> <i class="fas fa-chevron-right"></i> services </a>
+                <a href="#"> <i class="fas fa-chevron-right"></i> contact </a>
+                <a href="#"> <i class="fas fa-chevron-right"></i> blogs </a>
+            </div>
+    
+            <div class="box d-flex" data-aos="fade-up">
+                <h3>follow us</h3> 
+                <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+                <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+                <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+                <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+                <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+            </div>
+    
+        </div>
+    
+        <div class="credit"> creadet by <span>mr. web designer</span> | all rights reserved </div>
+    
+    </section>
+    
+    <!-- footer section ends -->
+     
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!--<script>
+        
+    $(document).ready(function(){
+        $('.btn').click(function(){
+            const name=$('#nameid').val();
+            alert(name);
+            $('#imgchange').attr('src',`https://joeschmoe.io/api/v1/${name}`);
+        });
+    });
+    </script>-->
+    <!-- custom js file link  -->
+    <script src="{% static 'script.js' %}"></script>
+    
+    <script>
+    
+    AOS.init({
+        duration:800,
+        delay:400
+    });
+    
+    </script>
+    
+    </body>
+    </html>
