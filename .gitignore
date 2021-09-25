@@ -3,3 +3,4 @@
 .idea
 mentor/__pycache__/
 mentor/migrations/
+WEB/__pycache__/
