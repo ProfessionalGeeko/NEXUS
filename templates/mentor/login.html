@@ -11,7 +11,7 @@
     <script src="https://kit.fontawesome.com/16cdc21e40.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link href="{% static 'login.css' %}" rel="stylesheet" type="text/css">
-
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,900;1,900&display=swap" rel="stylesheet">
@@ -23,10 +23,9 @@
     <title>Account</title>
   </head>
   <body>
-
      <div class="container shadow" id="container">
         <div class="form-container sign-up-container">
-            <form method="post" name="signup">
+            <form method="post" name="signup" class="needs-validation">
                 {% csrf_token %}
                 <br><h2>Create Account</h2>
                 <div class="social-container d-flex">
@@ -43,24 +42,23 @@
                     {{ signup.last_name }}
                 </div>
                 </div>
-                {{ signup.email }}
-                {{ signup.username }}
-                {{ signup.password1 }}
-                {{ signup.password2 }}
-
-
-                    {% for message in messages %}
-                        {% if message.tags == 'error' %}
-<<<<<<< HEAD
-                            <div class="alert alert-danger d-flex align-items-center" id="danger {{ forloop.counter }}"><b>{{ message }}</b></div>
-=======
-                            <div class="alert alert-danger d-flex align-items-center" id="danger"><b>{{ message }}</b></div>
->>>>>>> c6cd488b611bb765fd4f75edff2369f6efc2bfdb
-                        {% endif %}
-                    {% endfor %}
-
+                <div class="col">{{ signup.email }}</div>
+                <div class="col">{{ signup.username }}
+                    {% if signup.username.errors %}
+                        <div class="invalid-feedback" id="username">
+                            {{ signup.username.errors|striptags }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="col">{{ signup.password1 }}</div>
+                <div class="col">{{ signup.password2 }}
+                    {% if signup.password2.errors %}
+                        <div class="invalid-feedback" id="password">
+                            {{ signup.password2.errors|striptags }}
+                        </div>
+                    {% endif %}
+                </div>
                 <button type="submit" value="signup" name="signup" id="sign">Sign Up!</button><br>
-
             </form>
         </div>
         <div class="form-container sign-in-container">
@@ -73,8 +71,8 @@
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your account</span><br>
-                <input type="text" class="mb-2" placeholder="Username" name="username"/>
-                <input type="password" class="mb-2" placeholder="Password" name="password"/>
+                <input type="text" class="mb-2" placeholder="Username" name="username" required/>
+                <input type="password" class="mb-2" placeholder="Password" name="password" required/>
                  <br>
                 {% if messages %}
                     {% for message in messages %}
@@ -101,15 +99,10 @@
             </div>
         </div>
     </div>
-     <script>
-        const op = "{{ user_name }}";
-        const op1 = "{{ userpassword }}";
-     </script>
-     
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="{% static 'login.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-
-     
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+     <script src="{% static 'login.js' %}"></script>
   </body>
 </html>
