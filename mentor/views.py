@@ -142,5 +142,10 @@ def profileview(request, pk):
     return render(request, 'mentor/profileview.html', {'profile': profile})
 
 def post(request): 
-    return render(request,"mentor/servicediscussion.html")
+    return render(request,"mentor/post.html")
+
+
+def post_all(request):
+    return render(request, 'mentor/post_all.html')
+
 
