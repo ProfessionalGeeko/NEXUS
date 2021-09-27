@@ -12,7 +12,7 @@ from mentor.models import User
 def index(request):
     return render(request, 'mentor/web.html')
 
-
+ 
 def usersetup(request):
 
     if request.method == 'POST':
@@ -130,3 +130,6 @@ def unfollow_request(request, pk):
     follow.following.remove(following.user)
     following.followers.remove(follow.user)
     return HttpResponseRedirect(reverse('mentor'))
+
+def post(request): 
+    return render(request,"mentor/servicediscussion.html")
