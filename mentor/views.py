@@ -12,7 +12,7 @@ from mentor.models import User
 def index(request):
     return render(request, 'mentor/web.html')
 
-
+ 
 def usersetup(request):
 
     if request.method == 'POST':
@@ -116,6 +116,7 @@ def unfollow_request(request, pk):
     follow = get_object_or_404(MenteeInfo, pk=pk)
     follow.following.remove(following.user)
     following.followers.remove(follow.user)
+
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
@@ -139,3 +140,7 @@ def accountupdate(request):
 def profileview(request, pk):
     profile = get_object_or_404(MenteeInfo, pk=pk)
     return render(request, 'mentor/profileview.html', {'profile': profile})
+
+def post(request): 
+    return render(request,"mentor/servicediscussion.html")
+
