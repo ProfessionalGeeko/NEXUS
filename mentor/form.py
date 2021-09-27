@@ -12,8 +12,9 @@ class SignUpForm(UserCreationForm):
                                                                       'id': 'un'}))
     email = forms.EmailField(max_length=40, widget=forms.EmailInput({'class': 'mb-2', 'placeholder': 'Email'}))
     password1 = forms.CharField(widget=forms.PasswordInput({'placeholder': 'Enter Password', 'class': 'mb-2',
-                                                            'id': 'up'}))
-    password2 = forms.CharField(widget=forms.PasswordInput({'placeholder': 'Confirm Password', 'class': 'mb-2'}))
+                                                            'id': 'up1', 'minlength': '8'}))
+    password2 = forms.CharField(widget=forms.PasswordInput({'placeholder': 'Confirm Password', 'class': 'mb-2',
+                                                            'id': 'up', 'minlength': '8'}))
     first_name = forms.CharField(max_length=32, widget=forms.TextInput({'class': 'mb-2', 'placeholder': 'First Name'}))
     last_name = forms.CharField(max_length=32, widget=forms.TextInput({'class': 'mb-2', 'placeholder': 'Last Name'}))
 

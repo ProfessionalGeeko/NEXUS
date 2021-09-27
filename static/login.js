@@ -1,8 +1,9 @@
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
-const success = document.getElementById('success')
-const danger = document.getElementById('danger 1')
+const danger = document.getElementsByClassName('invalid-feedback');
+const user_error = document.getElementById('username');
+const pass_error = document.getElementById('password');
 
 signUpButton.addEventListener('click', () => {
 	container.classList.add("right-panel-active");
@@ -13,27 +14,24 @@ signInButton.addEventListener('click', () => {
 });
 
 function successcheck() {
-<<<<<<< HEAD
-
-=======
-	 
->>>>>>> c6cd488b611bb765fd4f75edff2369f6efc2bfdb
-	if (success) {
-		container.classList.remove("right-panel-active");
-		print('done')
-}
-	if (danger) {
-		if (op != 'None'){
-			document.getElementById('un').classList.add('form-control')
-			document.getElementById('un').classList.add('is-invalid')
-		}
-		if (op1 != 'None'){
-			document.getElementById('up').classList.add('form-control')
-			document.getElementById('up').classList.add('is-invalid')
-		}
+	if (danger.length != 0) {
 		container.classList.add("right-panel-active");
-}
+		if (user_error){
+			console.log('usernameerror')
+			document.getElementById('un').classList.add("form-control");
+			document.getElementById('un').classList.add("is-invalid");
+		}
+		if (pass_error){
+			console.log('passworderror')
+			document.getElementById('up').classList.add("form-control");
+			document.getElementById('up').classList.add("is-invalid");
+			document.getElementById('up1').classList.add("form-control");
+			document.getElementById('up1').classList.add("is-invalid");
+		}
+	}
+	else {
+			container.classList.remove("right-panel-active");
+	}
 }
 
 successcheck()
-console.log(op)
