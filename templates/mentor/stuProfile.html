@@ -333,24 +333,23 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href={% url 'profile' %}>
+            <a href="{% url 'profile' %}">
                 <span class="icon"><i class="fas fa-house-user "></i></span>
                 <span class="title">Home</span>
             </a>
         <li class="nav-item">
-            <a href="">
+            <a href="{% url 'post' %}">
                 <span class="icon"><i class="fas fa-address-card "></i></span>
                 <span class="title">Services</span>
             </a>
         <li class="nav-item ">
-            <a href={% url 'mentor' %}>
+            <a href="{% url 'mentor' %}">
                 <span class="icon mt-2"><i class="fas fa-users"></i></span>
                 <span class="title">Connect</span>
             </a>
         <li class="nav-item">
-            <a href={% url 'logout' %}>
+            <a href="{% url 'logout' %}">
                 <span class="icon"><i class="fas fa-sign-out-alt "></i></span>
-                <span class="title">Logout!</span>
             </a>
     </ul>
 
