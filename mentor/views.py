@@ -126,7 +126,11 @@ def accountupdate(request):
     if request.method == 'POST':
         update = MenteeProfileForm(request.POST, request.FILES, instance=user)
         if update.is_valid():
-            update.save()
+            user_update = update.save(commit=False)
+            if 'dop' in request.FILES:
+                user_update.dp = request.FILES['dop']
+                user_update.save()
+            user_update.save()
             return HttpResponseRedirect(reverse('profile'))
     return render(request, 'mentor/accountupdate.html', {'menteeform': menteeform, 'user': user})
 
