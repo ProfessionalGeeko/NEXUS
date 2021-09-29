@@ -8,7 +8,9 @@
     <script src="https://kit.fontawesome.com/16cdc21e40.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    {% block style %}
     <link href="{% static 'style.css' %}" rel="stylesheet">
+    {% endblock %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,900;1,900&display=swap"
@@ -350,6 +352,7 @@
         <li class="nav-item">
             <a href="{% url 'logout' %}">
                 <span class="icon"><i class="fas fa-sign-out-alt "></i></span>
+                Logout!
             </a>
     </ul>
 

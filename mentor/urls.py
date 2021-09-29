@@ -11,4 +11,9 @@ urlpatterns = [
     path('update/', views.accountupdate, name='profile_update'),
     path('profile/<str:pk>', views.profileview, name='profileview'),
     path('post/', views.post, name='post'),
+    path('post/all', views.post_all, name='post_all'),
+    path('post/new', views.create_post, name='create'),
+    path('post/like', views.post_like, name='like'),
+    path('post/unlike', views.post_unlike, name='unlike'),
+    path('post/comment/<str:pk>', views.post_comment, name='comment'),
 ]
