@@ -107,4 +107,14 @@
 
                     </div>
                 </div>
+    <script>
+
+        upload.onchange = evt => {
+            const [file] = upload.files
+            if (file) {
+                blash.src = URL.createObjectURL(file)
+            }
+        }
+
+    </script>
 {% endblock %}

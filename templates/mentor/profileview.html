@@ -1,5 +1,8 @@
 {% extends 'mentor/stuProfile.html' %}
 {% load static %}
+{% block style %}
+    <link href="{% static 'forum.css' %}" rel="stylesheet">
+{% endblock %}
 {% block content %}
     <div class="container">
     <div class="main-body">
@@ -11,7 +14,7 @@
                     <img src="{{ profile.dp.url }}" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
                       <h4>{{ profile.user.username }}</h4>
-                      <p class="text-secondary mb-1">Full Stack Developer</p>
+                      <p id="upload" class="text-secondary mb-1">Full Stack Developer</p>
                       <p class="text-muted font-size-sm">Mumbai</p>
                         {% if request.user in profile.followers.all %}
                             <form action="{% url 'unfollow_request' request.user.pk %}" method="post">
@@ -87,6 +90,138 @@
                   <hr>
                 </div>
               </div>
+                <div class="row gutters-sm">
+                    {% for i in posts %}
+                                <div class="timeline-body bg-white ">
+                                    <div class="timeline-header p-30"style="border-bottom: 1px solid #e2e7eb;
+                 "><br>
+                                        <span class="userimage"><img src="{{ i.creator.dp.url }}" height="34px" width="34px" alt=""></span>
+                                        <span class="username"><a href="javascript:;"class="text-decoration-none">{{ i.creator.user.username }}</a> </span>
+                                    </div>
+                                    {% if i.post_image.url or i.post_video.url %}
+                                        <div class="timeline-content">
+                                            <div id="myCarousel{{ i.pk }}" class="carousel slide" data-bs-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    {% if i.post_image %}
+                                                        <div class="carousel-item active">
+                                                            <div id="hello" style="display: flex; align-items: center; justify-content: center;">
+                                                                <img src="{{ i.post_image.url }}" class="bd-placeholder-img" style="width: auto; height: auto; max-width: 918px; max-height: 400px;">
+                                                                <div class="carousel-caption d-none d-md-block">
+                                                                    <h5>{{ i.post_caption }}</h5>
+                                                                    <p>{{ i.post_text }}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}
+                                                    {% if i.post_video %}
+                                                        <div class="carousel-item carousel-item-active">
+                                                            <video
+                                                                    style="width: 918px; height: 400px"
+                                                                    controls
+                                                                    playsinline
+                                                                    autoplay
+                                                                    muted
+                                                                    loop
+                                                            >
+                                                                <source
+                                                                        class="h-100"
+                                                                        src="{{ i.post_video.url }}"
+                                                                        type="video/mp4"
+                                                                />
+                                                            </video>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel{{ i.pk }}" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel{{ i.pk }}" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div class="timeline-content">
+                                            <p>
+                                                <strong>{{ i.post_text }}</strong>
+                                            </p>
+                                        </div>
+                                    {% endif %}
+                                    {#                      timeline end#}
+                                    <div class="timeline-likes">
+                                        <div class="stats-right">
+                                            <a href="" class="stats-text text-decoration-none text-dark">259 Shares</a>
+                                            <a href="#comment" class="stats-text text-decoration-none text-dark">21 Comments</a>
+                                        </div>
+                                        <div class="stats">
+
+                       <span class="fa-stack fa-fw stats-icon">
+                       <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                       <i class="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
+                       </span>
+                                            <a href="" class="stats-total text-decoration-none text-dark"data-bs-toggle="modal" data-bs-target="#exampleModal">{{ i.likes.count }}</a>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-footer d-flex  " style="justify-content: space-between;padding:15px;">
+                                        {% if active not in i.likes.all %}
+                                            <form action="{% url 'like' %}" method="post">
+                                                {% csrf_token %}
+                                                <button type="submit" style="background-color: white; border: 0px;" name="like" value={{ i.pk }}><i class="far fa-thumbs-up"> Like</i></button>
+                                            </form>
+                                        {% else %}
+                                            <form action="{% url 'unlike' %}" method="post">
+                                            {% csrf_token %}
+                                                <button type="submit" style="background-color: white; border: 0px;" name="unlike" value={{ i.pk }}><i class="fas fa-thumbs-up"> Liked</i></button>
+                                            </form>
+                                        {% endif %}
+{#                                        <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-1x fa-lg m-r-3"> like</i></a>#}
+                                        <a href="javascript:;" onclick="showcomments('comment' + {{ i.pk }})"
+                                           class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-1x fa-lg m-r-4"> comment</i></a>
+                                        <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-1x fa-lg m-r-3"> share</i></a>
+                                        <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-send fa-1x fa-lg m-r-3"> send</i></a>
+                                    </div>
+                                    <div class="timeline-comment-box">
+                                        <div class="user"><img src="{{ active.dp.url }}" height="34px" width="34px"></div>
+                                        <div class="input ">
+                                            <form action="{% url 'comment' active.pk %}" method="post">
+                                                {% csrf_token %}
+                                                <div class="input-group ">
+                                                    <input required type="text" class = "form-control rounded-corner" name="body" placeholder="Write a comment.....">
+                                                    <span class="input-group-btn p-l-10 ">
+                                                    <button class="btn btn-primary f-s-12 rounded-corner" name="post_id" value={{ i.id }}  type="submit">Comment</button>
+                                                    </span>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="comscroll bg-light mt-2 overflow-scroll">
+                                            <div class="row" id="comment{{ i.pk }}" style="display: none;">
+                                                {% for com in comment %}
+                                                    {% if com.post == i %}
+                                                    <div class="col-md-12 shadow ">
+                                                        <div class="media media-comment">
+
+                                                            <div class="media-body ">
+                                                                <div class="mt-2">
+                                                                    <img class=" d-flex rounded-circle " src="{{ com.commentor.dp.url }}" alt="Image Description" height="36px" weight="36px">
+                                                                    <h5 class="d-flex h5 g-color-gray-dark-v1 mb-0">{{ com.commentor.user.username }}</h5>
+                                                                    <span class="text-muted"><small>{{ com.date_added }}</small></span>
+                                                                </div>
+
+                                                                <h6 class="text-small">{{ com.body }}</h6>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                </div>
             </div>
           </div>
 
