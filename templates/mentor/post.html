@@ -126,7 +126,7 @@
                                     </div>
                                     {% if i.post_image.url or i.post_video.url %}
                                         <div class="timeline-content">
-                                            <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                                            <div id="myCarousel{{ i.pk }}" class="carousel slide" data-bs-ride="carousel">
                                                 <div class="carousel-inner">
                                                     {% if i.post_image %}
                                                         <div class="carousel-item active">
@@ -158,11 +158,11 @@
                                                         </div>
                                                     {% endif %}
                                                 </div>
-                                                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                                                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel{{ i.pk }}" data-bs-slide="prev">
                                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                     <span class="visually-hidden">Previous</span>
                                                 </button>
-                                                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                                                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel{{ i.pk }}" data-bs-slide="next">
                                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                     <span class="visually-hidden">Next</span>
                                                 </button>

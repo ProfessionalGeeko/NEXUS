@@ -138,8 +138,12 @@ def accountupdate(request):
 
 @login_required(login_url='usersetup')
 def profileview(request, pk):
+    active_user = MenteeInfo.objects.get(user=request.user)
     profile = get_object_or_404(MenteeInfo, pk=pk)
-    return render(request, 'mentor/profileview.html', {'profile': profile})
+    post = Post.objects.filter(creator=profile).order_by('-id')
+    comments = Comment.objects.all()
+    return render(request, 'mentor/profileview.html', {'profile': profile, 'posts': post, 'comment': comments,
+                                                       'active': active_user})
 
 
 def post(request):
@@ -194,6 +198,7 @@ def post_comment(request, pk):
             print('invalid')
             print(com.errors)
             messages.error(request, com.errors)
+
 
 def post_all(request):
     return render(request, 'mentor/post_all.html')
