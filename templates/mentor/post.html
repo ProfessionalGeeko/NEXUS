@@ -7,330 +7,312 @@
 
 {% block content %}
     <div class="main shadow ">
-    <br>
-    <div class="container bootstrap snippets bootdey mb-3 ">
- <div class="row ">
-
-         <div class="well well-sm well-social-post">
-           <form>
-             <textarea class="form-control" id="blash" placeholder="Let's have a Discussion!!!"></textarea>
-             <ul class='list-inline post-actions d-flex'style="justify-content:space-between">
-
-                <label for="photo" class="fas fa-camera mt-2 fa-sm"> photo</label>
-                <input type="file" id="photo" style="display: none;">
-                <label for="video" class="fas fa-video mt-2 fa-sm"> video</label>
-                <input type="file" id="video" style="display: none;">
-                <label for="article" class="fas fa-newspaper mt-2 fa-sm"> article</label>
-                <input type="file" id="article" style="display: none;">
-                <li class='d-flex'><a href="#" class='btn btn-primary btn-xs'> Post</a></li>
-             </ul>
-         </form>
-                <script type="text/javascript">
-                   photo.oninput = evt => {
-                       console.log(photo.src)
-                       console.log('photo')
-                       blash.outerHTML = `<img id="blash" src="" alt="Admin" width="918" height="100">`
-                       const [file] = photo.files
-                       if (file) {
-                           blash.src = URL.createObjectURL(file)
-                       }
-                   }
-
-                   video.onchange = evt => {
-                       console.log('video')
-                       blash.outerHTML = `<video controls id="blash" src="" alt="Admin" width="918" height="100">`
-                       const [file] = video.files
-                       if (file) {
-                           blash.src = URL.createObjectURL(file)
-                       }
-                   }
-
-               </script>
-       </div>
-
-     </div>
-
-   </div>
-
-
-
-     <!-- Inner sidebar -->
- <div class="container inner-wrapper h-100" id="upload">
-  <div class="inner-sidebar d-flex h-100">
-
-   <!-- Inner sidebar body -->
-   <div class="inner-sidebar-body p-0">
-       <div class="p-3 h-auto" data-simplebar="init">
-           <div class="simplebar-wrapper" style="margin: -16px;">
-                <div class="simplebar-mask">
-                   <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
-                       <div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll;">
-                           <div class="simplebar-content" style="padding: 16px;">
-                               <nav class="nav nav-pills nav-gap-y-1 flex-column">
-                                   <a href="{% url 'post' %}" class="nav-link nav-link-faded has-icon text-dark">All Threads</a>
-                                   <a href="{% url 'post_all' %}" class="nav-link nav-link-faded has-icon text-dark">Popular this week</a>
-                                   <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon text-dark">Popular all time</a>
-                                   <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon text-dark">Solved</a>
-                                   <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon text-dark">Unsolved</a>
-                                   <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon text-dark">No replies yet</a>
-                               </nav>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-            </div>
-           <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div>
-           <div class="simplebar-track simplebar-vertical" style="visibility: visible;"><div class="simplebar-scrollbar" style="height: 151px; display: block; transform: translate3d(0px, 0px, 0px);"></div></div>
-       </div>
-   </div>
-      </div>
-   <!-- /Inner sidebar body -->
-
-
-<!-- begin profile-content -->
-<div class="profile-content  " style="overflow:scroll;height:643px;margin-left:235px">
-
-  <!-- begin tab-content -->
-  <div class="tab-content p-0 h-643">
-                {% block post %}
-              <div class="container">
-              <!-- begin timeline-body -->
-              <div class="timeline-body bg-white ">
-                 <div class="timeline-header p-30"style="border-bottom: 1px solid #e2e7eb;
-                 "><br>
-                    <span class="userimage"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" height="34px" weight="34px" alt=""></span>
-                    <span class="username"><a href="javascript:;"class="text-decoration-none">Sean Ngu</a> </span>
-                  </div>
-
-                 <div class="timeline-content">
-                    <p>
-                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus turpis quis tincidunt luctus.
-                       Nam sagittis dui in nunc consequat, in imperdiet nunc sagittis.
-                    </p>
-                 </div>
-                 <div class="timeline-likes">
-                    <div class="stats-right">
-                       <a href="" class="stats-text text-decoration-none text-dark">259 Shares</a>
-                       <a href="#comment" class="stats-text text-decoration-none text-dark">21 Comments</a>
-                    </div>
-                    <div class="stats">
-
-                       <span class="fa-stack fa-fw stats-icon">
-                       <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                       <i class="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
-                       </span>
-                       <a href="" class="stats-total text-decoration-none text-dark"data-bs-toggle="modal" data-bs-target="#exampleModal">4.3k</a>
-                    </div>
-                 </div>
-
-                 <div class="timeline-footer d-flex  " style="justify-content: space-between;padding:15px;">
-                    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-1x fa-lg m-r-3"> like</i></a>
-                    <a href="javascript:;" onclick="showcomments('comment1')"
-                       class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-1x fa-lg m-r-4"> comment</i></a>
-                    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-1x fa-lg m-r-3"> share</i></a>
-                    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-send fa-1x fa-lg m-r-3"> send</i></a>
-                 </div>
-                 <div class="timeline-comment-box">
-                    <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar3.png"></div>
-                    <div class="input ">
-                       <form action="">
-                          <div class="input-group ">
-                             <input type="text" class="form-control rounded-corner" placeholder="Write a comment...">
-                             <span class="input-group-btn p-l-10 ">
-                             <button class="btn btn-primary f-s-12 rounded-corner"  type="button">Comment</button>
-                             </span>
-                          </div>
-                       </form>
+        <br>
+        <div class="container bootstrap snippets bootdey mb-3 ">
+            <div class="row ">
+                <div class="well well-sm well-social-post">
+                    <form method="post" action="{% url 'create' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input class="form-control" placeholder="Add Caption!" type="text" width="918" style="border-right: 0px solid; border-top: 0px solid; border-left: 0px solid; background-color: #f8f4f4;" name="post_caption">
+                        <div id="content" style="display: flex; align-items: center; justify-content: center;">
+                            <textarea name="post_text" cols="40" rows="10" class="form-control" id="blash" placeholder="Let's have a Discussion!!!" width="918" height="100"></textarea>
+                            <img id="blashimage" style="display: none;" src="https://st2.depositphotos.com/1561359/12101/v/950/depositphotos_121012076-stock-illustration-blank-photo-icon.jpg" alt="Upload Image" height="400", width="400">
+                            <video controls style="display: none;" id="blashvideo" src="" alt="No Video Found!" width="400" height="400"/>
                         </div>
-                            <div class="comscroll bg-light mt-2 overflow-scroll">
-                              <div class="row" id="comment1" style="display: none;">
-                                  <div class="col-md-12 shadow ">
-                                      <div class="media media-comment">
+                        <ul class='list-inline post-actions d-flex'style="justify-content:space-between">
 
-                                          <div class="media-body ">
-                                            <div class="mt-2">
-                                              <img class=" d-flex rounded-circle " src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Image Description" height="36px" weight="36px">
-                                              <h5 class="d-flex h5 g-color-gray-dark-v1 mb-0">John Doe</h5>
-                                              <span class="text-muted"><small> 5 days ago</small></span>
-                                            </div>
+                            <label for="photo" class="fas fa-camera mt-2 fa-sm"> photo</label>
+                            <input onclick="" type="file" name="post_image" id="photo" accept="image/*">
+                            <label for="video" class="fas fa-video mt-2 fa-sm"> video</label>
+                            <input onclick="" type="file" name="post_video" id="video">
+                            <style>#photo, #video {
+                                display: none;
+                            }</style>
+                            <label for="article" class="fas fa-newspaper mt-2 fa-sm"> article</label>
+                            <input type="button" id="article" style="display: none;"></input>
+                            <li class='d-flex'><button class="btn btn-primary btn-xs" type="submit">Post</button></li>
+                        </ul>
+                    </form>
+                    <script type="text/javascript">
+                        photo.oninput = evt => {
+                            const [file] = photo.files
+                            if (file) {
+                                blashimage.src = URL.createObjectURL(file)
+                            }
+                        }
 
-                                            <h6 class="text-small">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.   </h6>
-                                       </div>
+                        video.onchange = evt => {
+                            console.log('video')
+                            const [file] = video.files
+                            if (file) {
+                                blashvideo.src = URL.createObjectURL(file)
+                            }
+                        }
 
-                                      </div>
-                                  </div>
-                                  <div class="col-md-12 shadow  mt-3">
-                                    <div class="media media-comment">
+                        video.onclick = evt => {
+                            blashvideo.style.display = '';
+                            blashimage.style.display = 'none';
+                            blash.style.display = 'none';
+                        }
 
-                                        <div class="media-body ">
-                                          <div class="mt-2 ">
-                                            <img class=" d-flex rounded-circle " src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Image Description" height="36px" weight="36px">
-                                            <h5 class="d-flex h5 g-color-gray-dark-v1 mb-0">John Doe</h5>
-                                            <span class="text-muted"><small> 5 days ago</small></span>
-                                          </div>
+                        photo.onclick = evt => {
+                            blashimage.style.display = '';
+                            blash.style.display = 'none';
+                            blashvideo.style.display = 'none';
+                        }
 
-                                          <h6 class="text-small">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.  </h6>
-                                     </div>
+                        article.onclick = evt => {
+                            blash.style.display = '';
+                            blashvideo.style.display = 'none';
+                            blashimage.style.display = 'none';
+                        }
 
-                                    </div>
-                                </div>
-                              </div>
-                            </div>
-
-                    </div>
-                  </div>
-                 </div>
-                                  <div class="timeline-body bg-white ">
-                 <div class="timeline-header p-30"style="border-bottom: 1px solid #e2e7eb;
-                 "><br>
-                    <span class="userimage"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" height="34px" weight="34px" alt=""></span>
-                    <span class="username"><a href="javascript:;"class="text-decoration-none">Sean Ngu</a> </span>
-                  </div>
-
-                 <div class="timeline-content">
-                    <p>
-                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus turpis quis tincidunt luctus.
-                       Nam sagittis dui in nunc consequat, in imperdiet nunc sagittis.
-                    </p>
-                 </div>
-                 <div class="timeline-likes">
-                    <div class="stats-right">
-                       <a href="" class="stats-text text-decoration-none text-dark">259 Shares</a>
-                       <a href="#comment" class="stats-text text-decoration-none text-dark">21 Comments</a>
-                    </div>
-                    <div class="stats">
-
-                       <span class="fa-stack fa-fw stats-icon">
-                       <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                       <i class="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
-                       </span>
-                       <a href="" class="stats-total text-decoration-none text-dark"data-bs-toggle="modal" data-bs-target="#exampleModal">4.3k</a>
-                    </div>
-                 </div>
-
-                 <div class="timeline-footer d-flex  " style="justify-content: space-between;padding:15px;">
-                    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-1x fa-lg m-r-3"> like</i></a>
-                    <a href="javascript:;" onclick="showcomments('comment2')"
-                       class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-1x fa-lg m-r-4"> comment</i></a>
-                    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-1x fa-lg m-r-3"> share</i></a>
-                    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-send fa-1x fa-lg m-r-3"> send</i></a>
-                 </div>
-                 <div class="timeline-comment-box">
-                    <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar3.png"></div>
-                    <div class="input ">
-                       <form action="">
-                          <div class="input-group ">
-                             <input type="text" class="form-control rounded-corner" placeholder="Write a comment...">
-                             <span class="input-group-btn p-l-10 ">
-                             <button class="btn btn-primary f-s-12 rounded-corner"  type="button">Comment</button>
-                             </span>
-                          </div>
-                       </form>
-                        </div>
-                            <div class="comscroll bg-light mt-2 overflow-scroll " id="comment">
-                              <div class="row" id="comment2" style="display: none;">
-                                  <div class="col-md-12 shadow ">
-                                      <div class="media media-comment">
-
-                                          <div class="media-body ">
-                                            <div class="mt-2">
-                                              <img class=" d-flex rounded-circle " src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Image Description" height="36px" weight="36px">
-                                              <h5 class="d-flex h5 g-color-gray-dark-v1 mb-0">John Doe</h5>
-                                              <span class="text-muted"><small> 5 days ago</small></span>
-                                            </div>
-
-                                            <h6 class="text-small">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.   </h6>
-                                       </div>
-
-                                      </div>
-                                  </div>
-                                  <div class="col-md-12 shadow  mt-3">
-                                    <div class="media media-comment">
-
-                                        <div class="media-body ">
-                                          <div class="mt-2 ">
-                                            <img class=" d-flex rounded-circle " src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Image Description" height="36px" weight="36px">
-                                            <h5 class="d-flex h5 g-color-gray-dark-v1 mb-0">John Doe</h5>
-                                            <span class="text-muted"><small> 5 days ago</small></span>
-                                          </div>
-
-                                          <h6 class="text-small">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.  </h6>
-                                     </div>
-
-                                    </div>
-                                </div>
-                              </div>
-                            </div>
-
-                    </div>
-                  </div>
-                    {% endblock %}
+                    </script>
                 </div>
-             <!-- end timeline-body -->
-<!-- /Inner sidebar -->
-</div>
 
-</div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Who liked your post?</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body  "style="height:210px;overflow:auto;">
-        <div class="timeline-header" >
-          <div class="mt-3">
-            <span class="userimage"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" height="34px" width="34px"></span>
-            <span class="username"><a href="javascript:;"class="text-decoration-none">Aroma</a> </span>
-          </div><hr>
-          <div class="mt-3">
-            <span class="userimage "><img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" height="34px" width="34px"></span>
-            <span class="username"><a href="javascript:;"class="text-decoration-none">Pranjal</a> </span>
-          </div>
-          <hr>
+            </div>
+
         </div>
 
 
+
+        <!-- Inner sidebar -->
+        <div class="container inner-wrapper h-100" id="upload">
+            <div class="inner-sidebar d-flex h-100">
+
+                <!-- Inner sidebar body -->
+                <div class="inner-sidebar-body p-0">
+                    <div class="p-3 h-auto" data-simplebar="init">
+                        <div class="simplebar-wrapper" style="margin: -16px;">
+                            <div class="simplebar-mask">
+                                <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                    <div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll;">
+                                        <div class="simplebar-content" style="padding: 16px;">
+                                            <nav class="nav nav-pills nav-gap-y-1 flex-column">
+                                                <a href="{% url 'post' %}" class="nav-link nav-link-faded has-icon text-dark">All Threads</a>
+                                                <a href="{% url 'post_all' %}" class="nav-link nav-link-faded has-icon text-dark">Popular this week</a>
+                                                <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon text-dark">Popular all time</a>
+                                                <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon text-dark">Solved</a>
+                                                <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon text-dark">Unsolved</a>
+                                                <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon text-dark">No replies yet</a>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div>
+                        <div class="simplebar-track simplebar-vertical" style="visibility: visible;"><div class="simplebar-scrollbar" style="height: 151px; display: block; transform: translate3d(0px, 0px, 0px);"></div></div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Inner sidebar body -->
+
+
+            <!-- begin profile-content -->
+            <div class="profile-content  " style="overflow:scroll;height:643px;margin-left:235px">
+
+                <!-- begin tab-content -->
+                <div class="tab-content p-0 h-643">
+                    {% block post %}
+                        <div class="container">
+                            <!-- begin timeline-body -->
+                            {% for i in posts %}
+                                <div class="timeline-body bg-white ">
+                                    <div class="timeline-header p-30"style="border-bottom: 1px solid #e2e7eb;
+                 "><br>
+                                        <span class="userimage"><img src="{{ i.creator.dp.url }}" height="34px" width="34px" alt=""></span>
+                                        <span class="username"><a href="javascript:;"class="text-decoration-none">{{ i.creator.user.username }}</a> </span>
+                                    </div>
+                                    {% if i.post_image.url or i.post_video.url %}
+                                        <div class="timeline-content">
+                                            <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    {% if i.post_image %}
+                                                        <div class="carousel-item active">
+                                                            <div id="hello" style="display: flex; align-items: center; justify-content: center;">
+                                                                <img src="{{ i.post_image.url }}" class="bd-placeholder-img" style="width: auto; height: auto; max-width: 918px; max-height: 400px;">
+                                                                <div class="carousel-caption d-none d-md-block">
+                                                                    <h5>{{ i.post_caption }}</h5>
+                                                                    <p>{{ i.post_text }}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}
+                                                    {% if i.post_video %}
+                                                        <div class="carousel-item carousel-item-active">
+                                                            <video
+                                                                    style="width: 918px; height: 400px"
+                                                                    controls
+                                                                    playsinline
+                                                                    autoplay
+                                                                    muted
+                                                                    loop
+                                                            >
+                                                                <source
+                                                                        class="h-100"
+                                                                        src="{{ i.post_video.url }}"
+                                                                        type="video/mp4"
+                                                                />
+                                                            </video>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div class="timeline-content">
+                                            <p>
+                                                <strong>{{ i.post_text }}</strong>
+                                            </p>
+                                        </div>
+                                    {% endif %}
+                                    {#                      timeline end#}
+                                    <div class="timeline-likes">
+                                        <div class="stats-right">
+                                            <a href="" class="stats-text text-decoration-none text-dark">259 Shares</a>
+                                            <a href="#comment" class="stats-text text-decoration-none text-dark">21 Comments</a>
+                                        </div>
+                                        <div class="stats">
+
+                       <span class="fa-stack fa-fw stats-icon">
+                       <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                       <i class="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
+                       </span>
+                                            <a href="" class="stats-total text-decoration-none text-dark"data-bs-toggle="modal" data-bs-target="#exampleModal">{{ i.likes.count }}</a>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-footer d-flex  " style="justify-content: space-between;padding:15px;">
+                                        {% if active not in i.likes.all %}
+                                            <form action="{% url 'like' %}" method="post">
+                                                {% csrf_token %}
+                                                <button type="submit" style="background-color: white; border: 0px;" name="like" value={{ i.pk }}><i class="far fa-thumbs-up"> Like</i></button>
+                                            </form>
+                                        {% else %}
+                                            <form action="{% url 'unlike' %}" method="post">
+                                            {% csrf_token %}
+                                                <button type="submit" style="background-color: white; border: 0px;" name="unlike" value={{ i.pk }}><i class="fas fa-thumbs-up"> Liked</i></button>
+                                            </form>
+                                        {% endif %}
+{#                                        <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-1x fa-lg m-r-3"> like</i></a>#}
+                                        <a href="javascript:;" onclick="showcomments('comment' + {{ i.pk }})"
+                                           class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-1x fa-lg m-r-4"> comment</i></a>
+                                        <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-1x fa-lg m-r-3"> share</i></a>
+                                        <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-send fa-1x fa-lg m-r-3"> send</i></a>
+                                    </div>
+                                    <div class="timeline-comment-box">
+                                        <div class="user"><img src="{{ active.dp.url }}" height="34px" width="34px"></div>
+                                        <div class="input ">
+                                            <form action="{% url 'comment' active.pk %}" method="post">
+                                                {% csrf_token %}
+                                                <div class="input-group ">
+                                                    <input required type="text" class = "form-control rounded-corner" name="body" placeholder="Write a comment.....">
+                                                    <span class="input-group-btn p-l-10 ">
+                                                    <button class="btn btn-primary f-s-12 rounded-corner" name="post_id" value={{ i.id }}  type="submit">Comment</button>
+                                                    </span>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="comscroll bg-light mt-2 overflow-scroll">
+                                            <div class="row" id="comment{{ i.pk }}" style="display: none;">
+                                                {% for com in comment %}
+                                                    {% if com.post == i %}
+                                                    <div class="col-md-12 shadow ">
+                                                        <div class="media media-comment">
+
+                                                            <div class="media-body ">
+                                                                <div class="mt-2">
+                                                                    <img class=" d-flex rounded-circle " src="{{ com.commentor.dp.url }}" alt="Image Description" height="36px" weight="36px">
+                                                                    <h5 class="d-flex h5 g-color-gray-dark-v1 mb-0">{{ com.commentor.user.username }}</h5>
+                                                                    <span class="text-muted"><small>{{ com.date_added }}</small></span>
+                                                                </div>
+
+                                                                <h6 class="text-small">{{ com.body }}</h6>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endblock %}
+                </div>
+                <!-- end timeline-body -->
+                <!-- /Inner sidebar -->
+            </div>
+
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Who liked your post?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body  "style="height:210px;overflow:auto;">
+                        <div class="timeline-header" >
+                            <div class="mt-3">
+                                <span class="userimage"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" height="34px" width="34px"></span>
+                                <span class="username"><a href="javascript:;"class="text-decoration-none">Aroma</a> </span>
+                            </div><hr>
+                            <div class="mt-3">
+                                <span class="userimage "><img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" height="34px" width="34px"></span>
+                                <span class="username"><a href="javascript:;"class="text-decoration-none">Pranjal</a> </span>
+                            </div>
+                            <hr>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-
-
-
     <script type="text/javascript">
 
-        function showcomments(x) {
-            var comment = document.getElementById(x)
-            if (comment.style.display == "block"){
-                comment.style.display = "none";
-            }
-            else {
-                comment.style.display = "block";
-            }
-        }
+                function showcomments(x) {
+                    var comment = document.getElementById(x)
+                    console.log(x)
+                    if (comment.style.display == "block"){
+                        comment.style.display = "none";
+                    }
+                    else {
+                        comment.style.display = "block";
+                    }
+                }
 
-        function toggleMenu() {
-            let navside = document.querySelector('.navside')
-            let main = document.querySelector('.main')
+                function toggleMenu() {
+                    let navside = document.querySelector('.navside')
+                    let main = document.querySelector('.main')
 
-            let toggle = document.querySelector('.toggle')
+                    let toggle = document.querySelector('.toggle')
 
 
-            navside.classList.toggle('active');
-            main.classList.toggle('active');
+                    navside.classList.toggle('active');
+                    main.classList.toggle('active');
 
-            toggle.classList.toggle('active');
+                    toggle.classList.toggle('active');
 
-        }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
-            integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
-            integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
-            crossorigin="anonymous"></script>
-</div>
-</div>
+                }
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+                    integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+                    crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+                    integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+                    crossorigin="anonymous"></script>
 {% endblock %}
