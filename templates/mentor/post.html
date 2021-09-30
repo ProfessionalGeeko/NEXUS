@@ -141,6 +141,7 @@
                                                     {% endif %}
                                                     {% if i.post_video %}
                                                         <div class="carousel-item carousel-item-active">
+                                                        <div id="hiii" style="display: flex; align-items: center; justify-content: center;">
                                                             <video
                                                                     style="width: 918px; height: 400px"
                                                                     controls
@@ -155,6 +156,7 @@
                                                                         type="video/mp4"
                                                                 />
                                                             </video>
+                                                        </div>
                                                         </div>
                                                     {% endif %}
                                                 </div>
@@ -178,8 +180,7 @@
                                     {#                      timeline end#}
                                     <div class="timeline-likes">
                                         <div class="stats-right">
-                                            <a href="" class="stats-text text-decoration-none text-dark">259 Shares</a>
-                                            <a href="#comment" class="stats-text text-decoration-none text-dark">21 Comments</a>
+                                            <a href="#comment" onclick="showcomments('comment' + {{ i.pk }})" class="stats-text text-decoration-none text-dark">{{ i.post_related.all.count }} Comment &nbsp; &nbsp;</a>
                                         </div>
                                         <div class="stats">
 
@@ -223,8 +224,7 @@
                                         </div>
                                         <div class="comscroll bg-light mt-2 overflow-scroll">
                                             <div class="row" id="comment{{ i.pk }}" style="display: none;">
-                                                {% for com in comment %}
-                                                    {% if com.post == i %}
+                                                {% for com in i.post_related.all %}
                                                     <div class="col-md-12 shadow ">
                                                         <div class="media media-comment">
 
@@ -240,7 +240,6 @@
 
                                                         </div>
                                                     </div>
-                                                    {% endif %}
                                                 {% endfor %}
                                             </div>
                                         </div>
