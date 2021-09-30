@@ -16,6 +16,7 @@ def index(request):
 def usersetup(request):
 
     if request.method == 'POST':
+        print(request.POST)
         if 'login' in request.POST:
             username = request.POST.get('username')
             password = request.POST.get('password')
