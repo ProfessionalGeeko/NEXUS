@@ -16,6 +16,7 @@ def index(request):
 def usersetup(request):
 
     if request.method == 'POST':
+        print(request.POST)
         if 'login' in request.POST:
             username = request.POST.get('username')
             password = request.POST.get('password')
@@ -149,8 +150,7 @@ def profileview(request, pk):
 def post(request):
     active_user = MenteeInfo.objects.get(user=request.user)
     posts = Post.objects.all().order_by('-id')
-    comments = Comment.objects.all()
-    return render(request, "mentor/post.html", {'active': active_user, 'posts': posts, 'comment': comments})
+    return render(request, "mentor/post.html", {'active': active_user, 'posts': posts})
 
 
 def post_like(request):
