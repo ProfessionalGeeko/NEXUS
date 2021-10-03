@@ -1,4 +1,6 @@
+
 {% load static %}
+
 <html lang="en">
 
 <head>
@@ -389,12 +391,12 @@
      
    </div>
    
-
+ {% block content %}
 
      <!-- Inner sidebar -->
  <div class="container inner-wrapper h-100">
   <div class="inner-sidebar d-flex h-100">
- 
+
    <!-- Inner sidebar body -->
    <div class="inner-sidebar-body p-0">
        <div class="p-3 h-auto" data-simplebar="init">
@@ -404,8 +406,8 @@
                        <div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll;">
                            <div class="simplebar-content" style="padding: 16px;">
                                <nav class="nav nav-pills nav-gap-y-1 flex-column">
-                                   <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon text-dark">All Threads</a>
-                                   <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon text-dark">Popular this week</a>
+                                   <a href="#" class="nav-link nav-link-faded has-icon text-dark">All Threads</a>
+                                   <a href="#" class="nav-link nav-link-faded has-icon text-dark">Popular this week</a>
                                    <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon text-dark">Popular all time</a>
                                    <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon text-dark">Solved</a>
                                    <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon text-dark">Unsolved</a>
@@ -422,7 +424,6 @@
    </div>
    <!-- /Inner sidebar body -->
 </div>
- 
 <!-- begin profile-content -->
 <div class="profile-content  " style="overflow:scroll;height:643px;margin-left:235px">
   
@@ -475,8 +476,11 @@
                              <button class="btn btn-primary f-s-12 rounded-corner"  type="button">Comment</button>
                              </span>
                           </div>
-                       </form>
+                           </div>
+                        </form>
                         </div>
+
+
                             <div class="comscroll bg-light mt-2 overflow-scroll " id="comment">
                               <div class="row">
                                   <div class="col-md-12 shadow ">
@@ -545,6 +549,7 @@
        
     </div>
   </div>
+      {% endblock %}
 </div>  
  
 
