@@ -1,0 +1,583 @@
+
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/16cdc21e40.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="{% static 'forum.css' %}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,900;1,900&display=swap"
+          rel="stylesheet">
+    <title>Nexus Post!</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .navside {
+        position: fixed;
+        width: 60px;
+        height: 100%;
+        transition: 0.5s;
+        overflow: hidden;
+
+    }
+
+
+    .navside.active {
+        width: 300px;
+    }
+
+    .navside ul li {
+        position: relative;
+        width: 100%;
+        list-style: none;
+
+    }
+    .navside ul li :hover{
+        background-color: yellowgreen;
+    }
+
+    .navside ul li a {
+        position: relative;
+        display: block;
+        width: 100%;
+        display: flex;
+        text-decoration: none;
+        color: white;
+    }
+
+    .navside ul li a .icon {
+        position: relative;
+        display: block;
+        min-width: 60px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+
+    }
+
+    .navside ul li a .fa {
+        font-size: 24px;
+
+    }
+
+    .navside ul li a .title {
+        position: relative;
+        display: block;
+        padding: 0 10px;
+        height: 60px;
+
+        text-align: start;
+        white-space: nowrap;
+    }
+
+    .main {
+        position: relative;
+        width: calc(100% - 60px);
+        left: 60px;
+        min-height: 100vh;
+        background-color: rgb(248, 244, 244);
+        transition: 0.5s;
+
+    }
+
+    .main.active {
+        width: calc(100% - 300px);
+        left: 300px;
+    }
+
+    .main .topbar {
+        width: 100%;
+        background-color: rgb(205, 224, 208);
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .toggle {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 60px;
+        height: 60px;
+        background-color: rgb(99, 126, 104);
+        cursor: pointer;
+        align-items: center;
+
+    }
+
+    .toggle.active {
+        background-color: rgb(72, 104, 74);
+    }
+
+    .toggle::before {
+        content: '\f0c9';
+        font-family: fontAwesome;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        line-height: 60px;
+        text-align: center;
+        font-size: 24px;
+        color: #fff;
+
+    }
+
+    .toggle.active::before {
+        content: '\f00d';
+
+    }
+
+    .cardBox {
+        position: relative;
+        width: 100%;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 20px;
+    }
+
+    .cardBox .card {
+        position: relative;
+        background-color: rgb(255, 255, 255);
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        box-shadow: black;
+
+    }
+
+    .cardBox .card .numbers {
+        position: relative;
+        font-size: 2em;
+        font-weight: 500;
+    }
+
+    .cardBox .card .iconB {
+
+        font-size: 2.5em;
+        font-weight: 500;
+    }
+
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .navside {
+    position: fixed;
+    width: 60px;
+    height: 100%;
+    transition: 0.5s;
+    overflow: hidden;
+
+  }
+  
+
+  .navside.active {
+    width:250px;
+  }
+
+  .navside ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+
+  }
+  .navside ul li :hover{
+    background-color: yellowgreen;
+  }
+
+  .navside ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: white;
+  }
+
+  .navside ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+
+  }
+
+  .navside ul li a .fa {
+    font-size: 24px;
+
+  }
+
+  .navside ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+
+    text-align: start;
+    white-space: nowrap;
+  }
+
+  .main {
+    position: relative;
+    width: calc(100% - 60px);
+    left: 60px;
+    min-height: 100vh;
+    background-color: rgb(248, 244, 244);
+    transition: 0.5s;
+
+  }
+
+  .main.active {
+    width: calc(100% - 250px);
+    left: 250px;
+  }
+
+  .main .topbar {
+    width: 100%;
+    background-color: rgb(205, 224, 208);
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(99, 126, 104);
+    cursor: pointer;
+    align-items: center;
+
+  }
+
+  .toggle.active {
+    background-color: rgb(72, 104, 74);
+  }
+
+  .toggle::before {
+    content: '\f0c9';
+    font-family: fontAwesome;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+
+  }
+
+  .toggle.active::before {
+    content: '\f00d';
+
+  }
+
+  .cardBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+  }
+
+  .cardBox .card {
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: black;
+
+  }
+
+  .cardBox .card .numbers {
+    position: relative;
+    font-size: 2em;
+    font-weight: 500;
+  }
+
+  .cardBox .card .iconB {
+
+    font-size: 2.5em;
+    font-weight: 500;
+  }
+</style>
+
+<body>
+<div class="navside d-flex flex-column pt-4 text-white bg-dark">
+    <i class="fas fa-book-reader fa-2x   text-center "></i>
+    <a class="text-center" style="text-decoration:none;color: #fff;">Profile</a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+            <a href="{% url 'profile' %}">
+                <span class="icon"><i class="fas fa-home "></i></span>
+                <span class="title">Home</span>
+            </a>
+        <li class="nav-item">
+            <a href="{% url 'post' %}">
+                <span class="icon"><i class="fas fa-briefcase "></i></span>
+                <span class="title">Services</span>
+            </a>
+        <li class="nav-item ">
+            <a href="{% url 'mentor' %}">
+                <span class="icon mt-2"><i class=" fas fa-users-cog"></i></span>
+                <span class="title">Choose Your Mentor</span>
+            </a>
+        <li class="nav-item">
+            <a href="{% url 'logout' %}">
+                <span class="icon"><i class="fas fa-cogs "></i></span>
+                <span class="title">Logout!</span>
+            </a>
+    </ul>
+
+    <hr>
+
+</div>
+<div class="main shadow ">
+    <div class="topbar">
+        <b>Nexus Post</b>
+        <div class="toggle" onclick="toggleMenu()">
+
+        </div>
+    </div>
+
+    <br>
+    <div class="container bootstrap snippets bootdey mb-3 ">
+ <div class="row ">
+     
+         <div class="well well-sm well-social-post">
+           <form> 
+             <textarea class="form-control" placeholder="Let's have a Discussion!!!"></textarea>
+             <ul class='list-inline post-actions d-flex'style="justify-content:space-between">
+          
+                <label for="photo" class="fas fa-camera mt-2 fa-sm"> photo</label>  
+                <input type="file" id="photo" style="display: none;visibility: none;">
+                <label for="photo" class="fas fa-video mt-2 fa-sm"> video</label>
+                <input type="file" id="photo" style="display: none;visibility: none;">
+                <label for="photo" class="fas fa-newspaper mt-2 fa-sm"> article</label>
+                <input type="file" id="photo" style="display: none;visibility: none;">
+                <li class='d-flex'><a href="#" class='btn btn-primary btn-xs'> Post</a></li>
+             </ul>
+         </form>
+       </div>
+    
+     </div>
+     
+   </div>
+   
+ {% block content %}
+
+     <!-- Inner sidebar -->
+ <div class="container inner-wrapper h-100">
+  <div class="inner-sidebar d-flex h-100">
+
+   <!-- Inner sidebar body -->
+   <div class="inner-sidebar-body p-0">
+       <div class="p-3 h-auto" data-simplebar="init">
+           <div class="simplebar-wrapper" style="margin: -16px;">
+                <div class="simplebar-mask">
+                   <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                       <div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll;">
+                           <div class="simplebar-content" style="padding: 16px;">
+                               <nav class="nav nav-pills nav-gap-y-1 flex-column">
+                                   <a href="#" class="nav-link nav-link-faded has-icon text-dark">All Threads</a>
+                                   <a href="#" class="nav-link nav-link-faded has-icon text-dark">Popular this week</a>
+                                   <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon text-dark">Popular all time</a>
+                                   <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon text-dark">Solved</a>
+                                   <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon text-dark">Unsolved</a>
+                                   <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon text-dark">No replies yet</a>
+                               </nav>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+            </div>
+           <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div>
+           <div class="simplebar-track simplebar-vertical" style="visibility: visible;"><div class="simplebar-scrollbar" style="height: 151px; display: block; transform: translate3d(0px, 0px, 0px);"></div></div>
+       </div>
+   </div>
+   <!-- /Inner sidebar body -->
+</div>
+<!-- begin profile-content -->
+<div class="profile-content  " style="overflow:scroll;height:643px;margin-left:235px">
+  
+  <!-- begin tab-content -->
+  <div class="tab-content p-0 h-643">
+      
+              <div class="container">
+              <!-- begin timeline-body -->
+              <div class="timeline-body bg-white ">
+                 <div class="timeline-header p-30"style="border-bottom: 1px solid #e2e7eb;
+                 "><br>
+                    <span class="userimage"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" height="34px" weight="34px" alt=""></span>
+                    <span class="username"><a href="javascript:;"class="text-decoration-none">Sean Ngu</a> </span>
+                  </div>
+                 
+                 <div class="timeline-content">
+                    <p>
+                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus turpis quis tincidunt luctus.
+                       Nam sagittis dui in nunc consequat, in imperdiet nunc sagittis.
+                    </p>
+                 </div>
+                 <div class="timeline-likes">
+                    <div class="stats-right">
+                       <a href="" class="stats-text text-decoration-none text-dark">259 Shares</a>
+                       <a href="#comment" class="stats-text text-decoration-none text-dark">21 Comments</a>
+                    </div>
+                    <div class="stats">
+                        
+                       <span class="fa-stack fa-fw stats-icon">
+                       <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                       <i class="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
+                       </span>
+                       <a href="" class="stats-total text-decoration-none text-dark"data-bs-toggle="modal" data-bs-target="#exampleModal">4.3k</a>
+                    </div>
+                 </div>
+                 
+                 <div class="timeline-footer d-flex  " style="justify-content: space-between;padding:15px;">
+                    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-1x fa-lg m-r-3"> like</i></a>
+                    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-1x fa-lg m-r-4"> comment</i></a> 
+                    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-1x fa-lg m-r-3"> share</i></a>
+                    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-send fa-1x fa-lg m-r-3"> send</i></a>
+                 </div>
+                 <div class="timeline-comment-box">
+                    <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar3.png"></div>
+                    <div class="input ">
+                       <form action="">
+                          <div class="input-group ">
+                             <input type="text" class="form-control rounded-corner" placeholder="Write a comment...">
+                             <span class="input-group-btn p-l-10 ">
+                             <button class="btn btn-primary f-s-12 rounded-corner"  type="button">Comment</button>
+                             </span>
+                          </div>
+                           </div>
+                        </form>
+                        </div>
+
+
+                            <div class="comscroll bg-light mt-2 overflow-scroll " id="comment">
+                              <div class="row">
+                                  <div class="col-md-12 shadow ">
+                                      <div class="media media-comment">
+                                          
+                                          <div class="media-body ">
+                                            <div class="mt-2">
+                                              <img class=" d-flex rounded-circle " src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Image Description" height="36px" weight="36px">
+                                              <h5 class="d-flex h5 g-color-gray-dark-v1 mb-0">John Doe</h5>
+                                              <span class="text-muted"><small> 5 days ago</small></span>
+                                            </div>
+                                      
+                                            <h6 class="text-small">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.   </h6>
+                                       </div>
+                                       
+                                      </div>
+                                  </div> 
+                                  <div class="col-md-12 shadow  mt-3">
+                                    <div class="media media-comment">
+                                        
+                                        <div class="media-body ">
+                                          <div class="mt-2 ">
+                                            <img class=" d-flex rounded-circle " src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Image Description" height="36px" weight="36px">
+                                            <h5 class="d-flex h5 g-color-gray-dark-v1 mb-0">John Doe</h5>
+                                            <span class="text-muted"><small> 5 days ago</small></span>
+                                          </div>
+                                    
+                                          <h6 class="text-small">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.  </h6>
+                                     </div>
+                                     
+                                    </div>
+                                </div> 
+                              </div>
+                            </div>
+                  
+                    </div>
+                  </div>
+                 </div>
+                </div>
+             <!-- end timeline-body -->
+<!-- /Inner sidebar -->                                                         
+</div> 
+ 
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Who liked your post?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body  "style="height:210px;overflow:auto;">
+        <div class="timeline-header" >
+          <div class="mt-3">
+            <span class="userimage"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" height="34px" width="34px"></span>
+            <span class="username"><a href="javascript:;"class="text-decoration-none">Aroma</a> </span>
+          </div><hr>
+          <div class="mt-3">
+            <span class="userimage "><img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" height="34px" width="34px"></span>
+            <span class="username"><a href="javascript:;"class="text-decoration-none">Pranjal</a> </span>
+          </div>
+          <hr>
+        </div>
+        
+       
+    </div>
+  </div>
+      {% endblock %}
+</div>  
+ 
+
+
+    <script type="text/javascript">
+ 
+        function toggleMenu() {
+            let navside = document.querySelector('.navside')
+            let main = document.querySelector('.main')
+
+            let toggle = document.querySelector('.toggle')
+
+
+            navside.classList.toggle('active');
+            main.classList.toggle('active');
+
+            toggle.classList.toggle('active');
+
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+            integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+            integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+            crossorigin="anonymous"></script>
+</div>
+</div>
+</body>
+
+</html>
