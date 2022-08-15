@@ -3,6 +3,13 @@
 An educational portal which is intuitive web application which performs mentor-mentee matching.
 NEXUS:AN HOLISTIC APPROACH TOWARDS STUDENTS.
 
+# Technologies used
+- HTML 
+- CSS
+- Python
+- Django
+- Sqlite3
+
 
 ![Screenshot (3)](https://user-images.githubusercontent.com/80697977/137103178-f717cf82-7f4c-4b2d-9724-fa8bad15e5d5.png)
 
